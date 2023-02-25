@@ -1,4 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SharedLayout from "./pages/SharedLayout";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
+import Error from "./components/Error";
 
 function App() {
   return (
