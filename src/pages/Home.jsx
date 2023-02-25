@@ -1,6 +1,12 @@
+import Search from "../components/Search";
+import List from "../components/List";
+
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
-export default Home
+    <>
+      <Search />
+      <List />
+    </>
+  );
+};
+export default Home;
