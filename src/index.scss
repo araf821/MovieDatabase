@@ -73,6 +73,7 @@ nav {
     font-size: 2rem;
     background-color: transparent;
     border: none;
+    text-shadow: 1rem 1rem 1rem var(--clr-text);
   }
 }
 
@@ -85,17 +86,21 @@ nav {
   width: 85vw;
   max-width: 40rem;
   margin: 1rem auto 0;
-  text-align: center;
-
   transition: all 0.2s linear;
-
+  border-radius: 0.5rem;
+  background-color: var(--clr-search);
   &:hover {
     transform: scale(1.03);
   }
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   input {
+    font-family: "Inconsolata", monospace;
     font-size: 1.5rem;
-    padding: 0.5rem 0.4rem;
+    padding: 0.5rem 0.5rem;
     width: 100%;
     text-align: center;
     background-color: var(--clr-search);
@@ -103,8 +108,22 @@ nav {
     border: none;
     outline: none;
     border-radius: 0.5rem;
-    &:hover {
-      transform: scale(1.03);
+
+    &:focus {
+      text-align: left;
     }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    color: var(--clr-text);
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
   }
 }

@@ -11,6 +11,7 @@ const getStorageTheme = () => {
 };
 
 const AppProvider = ({ children }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [theme, setTheme] = useState(getStorageTheme());
 
   const toggleTheme = () => {
@@ -22,12 +23,16 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log(searchTerm)
+  }, [searchTerm])
+
+  useEffect(() => {
     document.documentElement.className = theme;
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme }}>
+    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm }}>
       {children}
     </AppContext.Provider>
   );
