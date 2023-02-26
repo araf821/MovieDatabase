@@ -215,10 +215,54 @@ nav {
 
 .movie-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 auto;
   width: 85vw;
   max-width: 1170px;
-  background-color: white;
+  text-align: center;
+  padding: 2rem 0 5rem 0;
+
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s linear;
+    &:hover {
+      box-shadow: none;
+      transform: scale(1.03);
+    }
+  }
+
+  .info-container {
+    text-align: left;
+    line-height: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-top: 2rem;
+  }
+
+  span {
+    margin-right: 0.5rem;
+    color: var(--bg-clr);
+    padding: 0.25rem 0.4rem;
+    background-color: var(--clr-text);
+    border-radius: 4px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .movie-container {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .info-container {
+      padding-top: 0;
+    }
+  }
+
 }
 
 ////////////////////////////////////////////////////////////////////////

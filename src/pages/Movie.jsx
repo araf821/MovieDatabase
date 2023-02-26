@@ -17,6 +17,9 @@ const Movie = () => {
     try {
       const response = await axios(`${url}${id}`);
       console.log(response.data);
+      const data = await response.data;
+      console.log(data);
+      setMovie(data);
     } catch (error) {
       console.log(error);
     }
@@ -35,10 +38,47 @@ const Movie = () => {
     return <h1 className="page-center">Nothing to see here! LEAVE</h1>;
   }
 
+  const {
+    Poster: image,
+    Title: name,
+    Released: releaseDate,
+    Type: type,
+    Genre: genre,
+    Country: country,
+    Language: language,
+    Writer: author,
+    Plot: plot,
+  } = movie;
+
   return (
     <section className="movie-container">
-      <div className="img-container">asdf</div>
-      <div className="info-container">asdfd</div>
+      <div className="img-container">
+        <img src={image} alt="" />
+      </div>
+      <div className="info-container">
+        <h1>{name}</h1>
+        <p>
+          <span>Release Date:</span>{releaseDate}
+        </p>
+        <p style={{textTransform:"capitalize"}} >
+          <span>Type:</span>{type}
+        </p>
+        <p>
+          <span>Genre:</span>{genre}
+        </p>
+        <p>
+          <span>Country:</span>{country}
+        </p>
+        <p>
+          <span>Language:</span>{language}
+        </p>
+        <p>
+          <span>Author:</span>{author}
+        </p>
+        <p>
+          <span>Plot:</span>{plot}
+        </p>
+      </div>
     </section>
   );
 };
