@@ -14,6 +14,7 @@ const List = () => {
           return (
             <Card
               key={imdbID}
+              id={imdbID}
               name={Title}
               img={Poster}
               type={Type}
