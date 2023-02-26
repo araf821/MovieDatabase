@@ -50,7 +50,7 @@ const AppProvider = ({ children }) => {
   }, [theme]);
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm, loading, movies }}>
+    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm, loading, setLoading, movies }}>
       {children}
     </AppContext.Provider>
   );
