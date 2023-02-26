@@ -3,15 +3,25 @@ import Card from "./Card";
 
 const List = () => {
   const { movies } = useGlobalContext();
-  console.log(movies)
+  console.log(movies);
 
   return (
     <section className="list-container">
-      {movies.map((movie) => {
-        console.log(movie)
-        const {Title: name, Poster: img, Type: type, Year: year} = movie
-        return <Card key={movie.imdbID} name={name} img={img} />;
-      })}
+      <div className="cards">
+        {movies.map((movie) => {
+          console.log(movie);
+          const { imdbID, Title, Poster, Type, Year } = movie;
+          return (
+            <Card
+              key={imdbID}
+              name={Title}
+              img={Poster}
+              type={Type}
+              year={Year}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 };
