@@ -1,6 +1,10 @@
 import { useContext, createContext, useState, useEffect } from "react";
+import axios from 'axios'
 
 const AppContext = createContext();
+const apiKey = import.meta.env.VITE_API_KEY
+const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=`;
+
 
 const getStorageTheme = () => {
   let currentTheme = "dark-mode";
@@ -11,7 +15,8 @@ const getStorageTheme = () => {
 };
 
 const AppProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("one piece");
   const [theme, setTheme] = useState(getStorageTheme());
 
   const toggleTheme = () => {
@@ -22,9 +27,17 @@ const AppProvider = ({ children }) => {
     }
   };
 
+
   useEffect(() => {
-    console.log(searchTerm)
-  }, [searchTerm])
+
+    const fetchData = async() => {
+      const response = await axios(`${url}${searchTerm}`)
+      console.log(response.data.Search)
+    }
+    
+    
+    fetchData()
+  }, [searchTerm]);
 
   useEffect(() => {
     document.documentElement.className = theme;
