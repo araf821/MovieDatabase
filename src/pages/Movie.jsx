@@ -51,33 +51,42 @@ const Movie = () => {
   } = movie;
 
   return (
-    <section className="movie-container">
-      <div className="img-container">
-        <img src={image} alt="" />
-      </div>
-      <div className="info-container">
-        <h1>{name}</h1>
-        <p>
-          <span>Release Date:</span>{releaseDate}
-        </p>
-        <p style={{textTransform:"capitalize"}} >
-          <span>Type:</span>{type}
-        </p>
-        <p>
-          <span>Genre:</span>{genre}
-        </p>
-        <p>
-          <span>Country:</span>{country}
-        </p>
-        <p>
-          <span>Language:</span>{language}
-        </p>
-        <p>
-          <span>Author:</span>{author}
-        </p>
-        <p>
-          <span>Plot:</span>{plot}
-        </p>
+    <section className="movie-page">
+      <h1>{name}</h1>
+      <div className="movie-container">
+        <div className="img-container">
+          <img src={image} alt="" />
+        </div>
+        <div className="info-container">
+          <p>
+            <span>Release Date:</span>
+            {releaseDate}
+          </p>
+          <p style={{ textTransform: "capitalize" }}>
+            <span>Type:</span>
+            {type}
+          </p>
+          <p>
+            <span>Genre:</span>
+            {genre}
+          </p>
+          <p>
+            <span>Country:</span>
+            {country}
+          </p>
+          <p>
+            <span>Language:</span>
+            {language}
+          </p>
+          <p>
+            <span>Author:</span>
+            {author}
+          </p>
+          <p>
+            <span>Plot:</span>
+            {plot}
+          </p>
+        </div>
       </div>
     </section>
   );

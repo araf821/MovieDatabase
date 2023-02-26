@@ -66,6 +66,11 @@ nav {
     padding: 2rem 0;
   }
 
+  a {
+    text-decoration: none;
+    color: var(--clr-text);
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -96,7 +101,7 @@ nav {
   border-radius: 0.5rem;
   background-color: var(--clr-search);
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   display: flex;
@@ -131,6 +136,10 @@ nav {
     font-size: 1.5rem;
     padding: 0.5rem;
     cursor: pointer;
+
+    &:hover {
+      transform: rotate(35deg);
+    }
   }
 }
 
@@ -213,56 +222,62 @@ nav {
 //       Movie       ////       Movie       ////       Movie       //
 /////////////////////////////////////////////////////////////////////
 
-.movie-container {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: 85vw;
-  max-width: 1170px;
+.movie-page {
   text-align: center;
   padding: 2rem 0 5rem 0;
+  justify-content: center;
 
-  img {
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s linear;
-    &:hover {
-      box-shadow: none;
-      transform: scale(1.03);
-    }
+  h1 {
+    font-size: 2rem;
   }
 
-  .info-container {
+  .movie-container {
+    width: 85vw;
+    max-width: 1170px;
+    margin: 2rem auto;
     text-align: left;
-    line-height: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    padding-top: 2rem;
-  }
 
-  span {
-    margin-right: 0.5rem;
-    color: var(--bg-clr);
-    padding: 0.25rem 0.4rem;
-    background-color: var(--clr-text);
-    border-radius: 4px;
-  }
+    img {
+      margin: 0 auto;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s linear;
+      &:hover {
+        box-shadow: none;
+        transform: scale(1.03);
+      }
+    }
 
-  @media screen and (min-width: 990px) {
-    .movie-container {
+    .info-container {
+      text-align: left;
+      line-height: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding-top: 2rem;
+    }
+
+    span {
+      margin-right: 0.5rem;
+      color: var(--bg-clr);
+      padding: 0.25rem 0.4rem;
+      background-color: var(--clr-text);
+      border-radius: 4px;
+    }
+
+    @media screen and (min-width: 800px) {
       display: grid;
       grid-template-columns: 2fr 3fr;
       gap: 3rem;
       align-items: center;
-    }
-    .info-container {
-      padding-top: 0;
+
+      .info-container {
+        padding-top: 0;
+      }
     }
   }
-
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -311,6 +326,13 @@ nav {
     height: 80px;
   }
 }
+
+.loader {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
 .ldio-ij6qel53cud div {
   position: absolute;
   width: 30px;
@@ -339,7 +361,7 @@ nav {
   height: 200px;
   display: inline-block;
   overflow: hidden;
-  background: #f1f2f3;
+  background: transparent;
 }
 .ldio-ij6qel53cud {
   width: 100%;

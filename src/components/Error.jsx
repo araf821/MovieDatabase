@@ -1,6 +1,8 @@
 const Error = () => {
   return (
-    <div>Error</div>
-  )
-}
-export default Error
+    <div className="page-center">
+      An error has occurred. Please don't try that again.
+    </div>
+  );
+};
+export default Error;
