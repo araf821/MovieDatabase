@@ -50,6 +50,8 @@ const Movie = () => {
     Plot: plot,
   } = movie;
 
+  plot.replace("&amp;", "and");
+
   return (
     <section className="movie-page">
       <h1>{name}</h1>
@@ -84,7 +86,7 @@ const Movie = () => {
           </p>
           <p>
             <span>Plot:</span>
-            {plot}
+            {decodeURI(plot)}
           </p>
         </div>
       </div>
