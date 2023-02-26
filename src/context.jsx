@@ -1,10 +1,9 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const AppContext = createContext();
-const apiKey = import.meta.env.VITE_API_KEY
+const apiKey = import.meta.env.VITE_API_KEY;
 const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=`;
-
 
 const getStorageTheme = () => {
   let currentTheme = "dark-mode";
@@ -15,6 +14,7 @@ const getStorageTheme = () => {
 };
 
 const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("one piece");
   const [theme, setTheme] = useState(getStorageTheme());
@@ -27,16 +27,21 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios(`${url}${searchTerm}`);
+      console.log(response.data.Search);
+      setMovies(response.data.Search);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false)
+    }
+  };
 
   useEffect(() => {
-
-    const fetchData = async() => {
-      const response = await axios(`${url}${searchTerm}`)
-      console.log(response.data.Search)
-    }
-    
-    
-    fetchData()
+    fetchData();
   }, [searchTerm]);
 
   useEffect(() => {
@@ -45,7 +50,7 @@ const AppProvider = ({ children }) => {
   }, [theme]);
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm }}>
+    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm, loading, movies }}>
       {children}
     </AppContext.Provider>
   );

@@ -1,6 +1,9 @@
-const Card = () => {
+const Card = ({name, img, type, year}) => {
+
   return (
-    <div>Card</div>
+    <div className="card">
+      <img src={img} alt="" />
+    </div>
   )
 }
 export default Card

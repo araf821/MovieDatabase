@@ -129,6 +129,15 @@ nav {
 }
 
 //////////////////////////////////////////////////////////////////
-//       Card       ////       Card       ////       Card       //
+//       List       ////       List       ////       List       //
 //////////////////////////////////////////////////////////////////
 
+.list-container {
+  margin: 3rem auto 2rem;
+  width: 90vw;
+  max-width: 1170px;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 2rem;
+}
