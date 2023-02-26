@@ -3,7 +3,7 @@ import axios from "axios";
 
 const AppContext = createContext();
 const apiKey = import.meta.env.VITE_API_KEY;
-const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=`;
+const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=`;
 
 const getStorageTheme = () => {
   let currentTheme = "dark-mode";
