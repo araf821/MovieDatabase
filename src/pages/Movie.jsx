@@ -5,7 +5,7 @@ import { useGlobalContext } from "../context";
 import Loader from "../components/Loader";
 
 const apiKey = import.meta.env.VITE_API_KEY;
-const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=`;
+const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=`;
 
 const Movie = () => {
   const { loading, setLoading } = useGlobalContext();
