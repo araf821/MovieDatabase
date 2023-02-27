@@ -31,12 +31,11 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios(`${url}${searchTerm}`);
-      console.log(response.data.Search);
       setMovies(response.data.Search);
       setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -50,7 +49,9 @@ const AppProvider = ({ children }) => {
   }, [theme]);
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme, setSearchTerm, loading, setLoading, movies }}>
+    <AppContext.Provider
+      value={{ theme, toggleTheme, setSearchTerm, loading, setLoading, movies }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -22,7 +22,6 @@ const List = () => {
     <section className="list-container">
       <div className="cards">
         {movies.map((movie) => {
-          console.log(movie);
           const { imdbID, Title, Poster, Type, Year } = movie;
           return (
             <Card

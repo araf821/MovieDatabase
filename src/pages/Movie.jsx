@@ -16,9 +16,7 @@ const Movie = () => {
     setLoading(true);
     try {
       const response = await axios(`${url}${id}`);
-      console.log(response.data);
       const data = await response.data;
-      console.log(data);
       setMovie(data);
     } catch (error) {
       console.log(error);
